@@ -1,0 +1,32 @@
+{
+  "sgu-battery-installations-2011-to-present-and-totals.csv": {
+    "url": "https://cer.gov.au/document/sgu-battery-installations-2011-to-present-and-totals",
+    "bytes": 112984,
+    "sha256": "df682ba619d31d5094072742507bd585183a3134c11e37809570ef255ed287a0",
+    "fetched": "2026-10-23T13:12:23+00:00"
+  },
+  "sgu-battery-capacity-2011-to-present-and-totals.csv": {
+    "url": "https://cer.gov.au/document/sgu-battery-capacity-2011-to-present-and-totals",
+    "bytes": 329948,
+    "sha256": "6c862a8d9366bf46269e53ed7663088329d466365ec33e6495b32e4922ab25dd",
+    "fetched": "2026-10-23T13:12:23+00:00"
+  },
+  "sgu-solar-installations-2011-to-present-and-totals.csv": {
+    "url": "https://cer.gov.au/document/sgu-solar-installations-2011-to-present-and-totals",
+    "bytes": 1236641,
+    "sha256": "18474fe10be68f5185a009ff7e7523553662c49d5dfcc65621fe15101aadf3f4",
+    "fetched": "2026-10-23T13:12:24+00:00"
+  },
+  "sgu-solar-capacity-2011-to-present-and-totals.csv": {
+    "url": "https://cer.gov.au/document/sgu-solar-capacity-2011-to-present-and-totals",
+    "bytes": 3644059,
+    "sha256": "494326b82b414f9c75a1b2ad4a60ec0b9aff635e01832faa2e896b702c826c0d",
+    "fetched": "2026-10-23T13:12:25+00:00"
+  },
+  "historical-voluntary-state-data-battery-installation-small-scale-systems.csv": {
+    "url": "https://cer.gov.au/document/historical-voluntary-state-data-battery-installation-small-scale-systems",
+    "bytes": 726,
+    "sha256": "c8b7567e13d181e1e84e2e1b473b6bb3f451141164406459b7a5742a47faae7b",
+    "fetched": "2026-10-23T13:12:25+00:00"
+  }
+}
