@@ -5,6 +5,8 @@ Market, by region and month. Built from public data: the Clean Energy
 Regulator's (CER) small-scale installation data and AEMO's rooftop PV
 estimates. Part of [NEM Lens](https://github.com/nem-lens).
 
+**[Interactive charts →](https://nem-lens.github.io/der/)** Hover for values, filter by region and period, and see each chart's table.
+
 ## Headline figures
 
 <!-- headline:start -->
@@ -56,6 +58,7 @@ the highest half hour of the five regions' sum.
 | `data/solar_monthly_by_state.csv` | Solar systems installed and rated kW, by state and month, from 2011. Month 2010-12 holds the total before 2011. |
 | `data/rooftop_pv_monthly_by_region.csv` | Rooftop PV mean and peak MW and energy (GWh) by NEM region and month, from 2018 |
 | `data/rooftop_pv_nem_monthly_peak.csv` | The NEM's highest half hour of rooftop PV each month, and when |
+| `data/headline.json` | The headline figures above, for the web page |
 | `data/cer_sources.json` | The CER files these came from: URL, size, SHA-256, date fetched |
 
 States map to NEM regions with the ACT in NSW1. WA and NT are in the state

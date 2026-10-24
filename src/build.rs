@@ -251,6 +251,11 @@ pub fn run(raw: &Path, root: &Path) -> Result<Vec<String>> {
     charts(&cer, &roof, &root.join("charts"))?;
 
     let lines = headline::lines(&cer, &roof)?;
+    // The same figures for the web page.
+    std::fs::write(
+        data.join("headline.json"),
+        serde_json::to_string_pretty(&serde_json::json!({ "lines": lines }))?,
+    )?;
     let readme = root.join("README.md");
     let text = std::fs::read_to_string(&readme)?;
     std::fs::write(&readme, headline::into_readme(&text, &lines)?)?;

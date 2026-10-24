@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DER in the NEM</title>
+<meta name="description" content="Household batteries and rooftop solar in Australia's National Electricity Market, by region and month, from Clean Energy Regulator and AEMO data.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='9' width='3' height='6' fill='%232a78d6'/%3E%3Crect x='6.5' y='5' width='3' height='10' fill='%23eb6834'/%3E%3Crect x='12' y='1' width='3' height='14' fill='%231baf7a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="der.css">
+</head>
+<body>
+<header class="page">
+  <p class="kicker"><a href="https://github.com/nem-lens">NEM Lens</a></p>
+  <h1>DER in the NEM</h1>
+  <p class="lede">Household batteries and rooftop solar in Australia's National Electricity Market, by region and month. Built from the Clean Energy Regulator's small-scale installation data and AEMO's rooftop PV estimates.</p>
+  <ul id="headline" class="headline" aria-live="polite"></ul>
+</header>
+
+<form class="filters" id="filters" aria-label="Filters">
+  <fieldset>
+    <legend>Period</legend>
+    <div class="seg" role="radiogroup">
+      <label><input type="radio" name="range" value="all" checked> All</label>
+      <label><input type="radio" name="range" value="60"> Last 5 years</label>
+      <label><input type="radio" name="range" value="24"> Last 2 years</label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Regions</legend>
+    <div class="chips" id="regions"></div>
+  </fieldset>
+  <button type="button" id="theme" class="theme" aria-label="Switch colour theme">Theme</button>
+</form>
+
+<main>
+  <h2>Home batteries</h2>
+  <p class="section-note">CER has battery capacity by postcode only from July 2025, when home batteries began earning certificates under the Cheaper Home Batteries Program. Before that there is only a voluntary count, which CER says under-counts.</p>
+  <div class="grid" id="batteries"></div>
+
+  <h2>Rooftop solar</h2>
+  <p class="section-note">Installed capacity is CER's: systems up to 100 kW. Output is AEMO's half-hourly estimate per region, using its MEASUREMENT estimate where there is one and SATELLITE otherwise.</p>
+  <div class="grid" id="solar"></div>
+</main>
+
+<footer class="page">
+  <p>Data and code: <a href="https://github.com/nem-lens/der">github.com/nem-lens/der</a>. Every chart's table is a CSV in <a href="https://github.com/nem-lens/der/tree/main/data">data/</a>. Recent months are incomplete: CER counts a system once its certificates are created, up to a year after installation.</p>
+  <p>Battery and solar figures are based on Clean Energy Regulator material licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, aggregated from postcode to state, region and month. Rooftop PV output is derived from AEMO data, used under <a href="https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions">AEMO's copyright permissions</a>. Neither has reviewed or endorsed this page. Code © Archie C. Chapman and contributors, BSD-3-Clause.</p>
+</footer>
+
+<div id="tip" class="tip" role="status" hidden></div>
+<script src="der.js"></script>
+</body>
+</html>
