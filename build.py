@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Archie C. Chapman
+# SPDX-License-Identifier: BSD-3-Clause
 """Build the DER tables, charts and headline figures from the raw downloads.
 
     python build.py [--raw raw]
@@ -304,8 +306,8 @@ def main() -> int:
     peaks.to_csv(data / "rooftop_pv_nem_monthly_peak.csv", index=False, float_format="%.1f")
     json.dump(json.loads((cer_raw / "sources.json").read_text()), open(data / "cer_sources.json", "w"), indent=2)
 
-    cer_note = "Data: Clean Energy Regulator, small-scale installation postcode data (CC BY 4.0). NEM regions; the ACT counts with NSW. nem-lens/der"
-    aemo_note = "Data: AEMO, ROOFTOP_PV_ACTUAL estimates (MMSDM archive). nem-lens/der"
+    cer_note = "Based on Clean Energy Regulator material, CC BY 4.0. Postcodes aggregated to NEM regions; ACT in NSW. nem-lens/der"
+    aemo_note = "Derived from AEMO ROOFTOP_PV_ACTUAL estimates, used under AEMO's copyright permissions. nem-lens/der"
 
     nb = b.dropna(subset=["region"])
     w = nb.pivot_table(index="month", columns="region", values="usable_kwh", aggfunc="sum").reindex(columns=REGIONS).fillna(0)

@@ -76,10 +76,15 @@ Downloads go in `raw/`, which git ignores.
 
 ## Licences
 
-- **Code:** BSD-3-Clause (`LICENSE`).
-- **CER data:** the tables and charts are based on Clean Energy Regulator
-  material licensed under a
-  [Creative Commons Attribution 4.0 licence](https://cer.gov.au/about-us/our-policies/copyright).
-  They are aggregated from postcode to state, region and month.
-- **AEMO data:** derived from AEMO's market data, used under
+- **Code:** Copyright (c) 2026 Archie C. Chapman, under the BSD-3-Clause
+  licence (`LICENSE`).
+- **CER data:** the battery and solar tables and charts are based on Clean
+  Energy Regulator material licensed under a
+  [Creative Commons Attribution 4.0 licence](https://creativecommons.org/licenses/by/4.0/)
+  ([CER copyright](https://cer.gov.au/about-us/our-policies/copyright)).
+  Changes: postcodes are aggregated to state, NEM region and month. The
+  derived tables and charts are shared under the same licence.
+- **AEMO data:** the rooftop PV tables and charts are derived from AEMO's
+  market data, used under
   [AEMO's copyright permissions](https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions).
+- Neither the CER nor AEMO has reviewed or endorsed this work.

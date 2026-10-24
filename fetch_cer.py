@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Archie C. Chapman
+# SPDX-License-Identifier: BSD-3-Clause
 """Download the Clean Energy Regulator's small-scale installation data.
 
 Fetches the postcode files for batteries and solar PV (installations and

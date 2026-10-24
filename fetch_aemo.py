@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Archie C. Chapman
+# SPDX-License-Identifier: BSD-3-Clause
 """Download AEMO's rooftop PV estimates from the MMSDM monthly archive.
 
 ROOFTOP_PV_ACTUAL is AEMO's estimate of rooftop PV output per NEM region

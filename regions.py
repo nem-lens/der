@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Archie C. Chapman
+# SPDX-License-Identifier: BSD-3-Clause
 """Australian postcodes to states, and states to NEM regions."""
 
 # NEM regions in a fixed order (largest first), used for every chart.
