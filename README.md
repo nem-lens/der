@@ -76,7 +76,7 @@ Downloads go in `raw/`, which git ignores.
 
 ## Licences
 
-- **Code:** Copyright (c) 2026 Archie C. Chapman, under the BSD-3-Clause
+- **Code:** Copyright (c) 2026 Archie C. Chapman and contributors, under the BSD-3-Clause
   licence (`LICENSE`).
 - **CER data:** the battery and solar tables and charts are based on Clean
   Energy Regulator material licensed under a

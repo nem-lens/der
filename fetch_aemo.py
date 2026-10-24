@@ -1,4 +1,4 @@
-# Copyright (c) 2026 Archie C. Chapman
+# Copyright (c) 2026 Archie C. Chapman and contributors
 # SPDX-License-Identifier: BSD-3-Clause
 """Download AEMO's rooftop PV estimates from the MMSDM monthly archive.
 
