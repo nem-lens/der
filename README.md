@@ -18,11 +18,11 @@ estimates. Part of [NEM Lens](https://github.com/nem-lens).
 
 ## Home batteries
 
-![Home battery storage installed since July 2025, stacked by NEM region](charts/batteries_cumulative.png)
+![Home battery storage installed since July 2025, stacked by NEM region](charts/batteries_cumulative.svg)
 
-![Home batteries installed each month, stacked by NEM region](charts/batteries_monthly.png)
+![Home batteries installed each month, stacked by NEM region](charts/batteries_monthly.svg)
 
-![Home batteries before the subsidy, by year and NEM region](charts/batteries_before.png)
+![Home batteries before the subsidy, by year and NEM region](charts/batteries_before.svg)
 
 CER has battery capacity (kWh) by postcode only from July 2025, when home
 batteries began earning small-scale technology certificates under the
@@ -33,13 +33,13 @@ period.
 
 ## Rooftop solar
 
-![Small-scale solar installed, stacked by NEM region](charts/solar_cumulative.png)
+![Small-scale solar installed, stacked by NEM region](charts/solar_cumulative.svg)
 
-![Small-scale solar added each month, stacked by NEM region](charts/solar_monthly.png)
+![Small-scale solar added each month, stacked by NEM region](charts/solar_monthly.svg)
 
-![Rooftop PV output, monthly mean, stacked by NEM region](charts/rooftop_pv_monthly.png)
+![Rooftop PV output, monthly mean, stacked by NEM region](charts/rooftop_pv_monthly.svg)
 
-![Highest half-hour rooftop PV output across the NEM each month](charts/rooftop_pv_peak.png)
+![Highest half-hour rooftop PV output across the NEM each month](charts/rooftop_pv_peak.svg)
 
 Installed capacity is CER's: systems up to 100 kW, by the postcode they're
 installed in. Output is AEMO's half-hourly ROOFTOP_PV_ACTUAL estimate per
@@ -60,20 +60,38 @@ the highest half hour of the five regions' sum.
 
 States map to NEM regions with the ACT in NSW1. WA and NT are in the state
 tables but not in the NEM charts. Postcodes map to states by Australia
-Post's ranges (`regions.py`).
+Post's ranges (`src/regions.rs`).
+
+## Using the data
+
+The tables are plain CSV, one row per state (or region) and month. In
+Python, for example:
+
+```python
+import pandas as pd
+
+base = "https://raw.githubusercontent.com/nem-lens/der/main/data/"
+b = pd.read_csv(base + "batteries_monthly_by_state.csv", parse_dates=["month"])
+gwh = b.groupby(["month", "region"]).usable_kwh.sum().unstack() / 1e6
+print(gwh.cumsum().tail())
+```
+
+`region` is empty for WA and NT, which are outside the NEM.
 
 ## Rebuilding
 
-Python 3.10+ with pandas and matplotlib (`pip install -r requirements.txt`).
+The `der` tool is written in Rust and reads AEMO's files with the shared
+[nem-lens/aemo](https://github.com/nem-lens/aemo) parsers, so check that
+repository out next to this one (`aemo/` beside `der/`).
 
 ```sh
-python fetch_cer.py     # CER files into raw/cer/<date>/
-python fetch_aemo.py    # AEMO rooftop PV, one zip a month into raw/aemo/ (from 2018; skips months it has)
-python build.py         # data/, charts/ and the headline figures above
+cargo run --release -- fetch-cer    # CER files into raw/cer/<date>/
+cargo run --release -- fetch-aemo   # AEMO rooftop PV, one zip a month into raw/aemo/ (from 2018; skips months it has)
+cargo run --release -- build        # data/, charts/ and the headline figures above
 ```
 
-Downloads go in `raw/`, which git ignores.
-
+Downloads go in `raw/`, which git ignores. Every download is recorded
+with its URL, size and SHA-256 in a `sources.json` beside it.
 ## Licences
 
 - **Code:** Copyright (c) 2026 Archie C. Chapman and contributors, under the BSD-3-Clause

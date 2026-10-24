@@ -1,0 +1,29 @@
+[package]
+name = "nem-lens-der"
+version = "0.1.0"
+edition = "2021"
+description = "Household batteries and rooftop solar in the NEM: CER and AEMO fetchers, regional monthly tables, charts and headline figures"
+license = "BSD-3-Clause"
+repository = "https://github.com/nem-lens/der"
+# Not on crates.io, like the other NEM Lens crates.
+publish = false
+
+[[bin]]
+name = "der"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+chrono = "0.4"
+clap = { version = "4", features = ["derive"] }
+csv = "1"
+hex = "0.4"
+# Shared AEMO parsers. The path matches the NEM Lens checkout layout
+# (der/ and aemo/ side by side).
+nem-lens-aemo = { path = "../aemo" }
+regex = "1"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+# preserve_order keeps sources.json in the order files were fetched.
+serde_json = { version = "1", features = ["preserve_order"] }
+sha2 = "0.10"

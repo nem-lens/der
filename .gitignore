@@ -1,3 +1,3 @@
-# Downloads from CER and AEMO; rebuild with fetch_cer.py and fetch_aemo.py.
+# Downloads from CER and AEMO; fetch with der fetch-cer and der fetch-aemo.
 /raw/
-__pycache__/
+/target/
